@@ -1,5 +1,12 @@
 const mergeSort = (array) => {
-    
+    const len = array.length;
+    if (len == 1) {
+        return array;
+    }
+    const midIndex = len/2;
+    const leftArray = array.slice(0,midIndex);
+    const rightArray = array.slice(midIndex, len);
+    return mergeTwoSortedArrays(mergeSort(leftArray), mergeSort(rightArray));
 };
 
 const mergeTwoSortedArrays = (array1, array2) => {
@@ -26,6 +33,5 @@ const mergeTwoSortedArrays = (array1, array2) => {
     return res;
 };
 
-const a = [-100];
-const b = [-1000,2,4,7];
-console.log(mergeTwoSortedArrays(a,b));
+const c = mergeSort([5,1,2,8,7,4,9,3,6,0, -10000, 0,0,0, 5404]);
+console.log(c);
